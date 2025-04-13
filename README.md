@@ -2,5 +2,6 @@ This is short project to create a dynamic sheet to store the stocks symbol and c
 ![image](https://github.com/user-attachments/assets/a105cfbc-260e-423b-adfd-2680060f1ffb)
 ![image](https://github.com/user-attachments/assets/662e3806-8e3a-48bd-b0fc-ad7c18f924f1)
 Cannot change the orders of project (pin) it is incovenient put here so github need to fix in the future. AI agrred with me. If I have the time will feedback to github.
+
 ![image](https://github.com/user-attachments/assets/0a04d40b-d5f3-4a1b-bbd3-d68e7e57b58c)
 
