@@ -5,3 +5,44 @@ Cannot change the orders of project (pin) it is incovenient, I put here so githu
 
 ![image](https://github.com/user-attachments/assets/0a04d40b-d5f3-4a1b-bbd3-d68e7e57b58c)
 
+You're right — when today is Monday, the formula might not work because GOOGLEFINANCE tries to get Friday's close, but Google Finance often doesn't return data for the most recent past trading day until later in the day (especially early Monday).
+
+Let’s fix this by modifying your formula to check for the latest available close price within the last few days, not just relying on one day.
+
+✅ Robust Fix:
+Try this updated formula — it checks up to 5 days back to find the most recent valid close price:
+
+excel
+Copy
+Edit
+=INDEX(
+  FILTER(
+    GOOGLEFINANCE(A3, "close", TODAY()-5, TODAY()),
+    NOT(ISNA(INDEX(GOOGLEFINANCE(A3, "close", TODAY()-5, TODAY()), , 2)))
+  ),
+  ROWS(FILTER(
+    GOOGLEFINANCE(A3, "close", TODAY()-5, TODAY()),
+    NOT(ISNA(INDEX(GOOGLEFINANCE(A3, "close", TODAY()-5, TODAY()), , 2)))
+  )),
+  2
+)
+🔍 What it does:
+Fetches close prices for the last 5 days.
+
+Filters out any rows where the close price is N/A.
+
+Returns the most recent available close price (last valid row).
+
+This should work reliably, even on Mondays, holidays, or early mornings when data hasn’t updated yet.
+
+Want a simplified or optimized version too?
+
+
+
+
+
+
+
+
+
+
